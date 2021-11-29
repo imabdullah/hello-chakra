@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Box, Image, Text, Grid, HStack, Flex } from "@chakra-ui/react";
-
+import dateFormat from "dateformat";
 import Stat from "./Stat";
 
 class Post extends Component {
@@ -12,6 +12,7 @@ class Post extends Component {
       <>
         <Box>
           <Box
+            boxShadow="inset 55px 0 1px -4px rgba(112, 117, 126, 0.8),inset -55px 0 1px -4px rgba(112, 117, 126, 0.9);"
             display="flex"
             bgImage={post.images[0]}
             boxSize="400px"
@@ -19,6 +20,8 @@ class Post extends Component {
             bgSize="100%"
             alignItems="end"
             pb="2"
+            align-items="center"
+            justifyContent="space-between"
           >
             <HStack mx={2} opacity="8">
               <Image
@@ -39,7 +42,7 @@ class Post extends Component {
           <Flex align="center" justify="center" mt="2">
             <Text fontSize="13px">Posted on </Text> &nbsp;
             <Text fontSize="sm" color="white">
-              {post.postingDate.split("T")[0]}
+              {dateFormat(post.postingDate, "mmmm dS yyyy")}
             </Text>
           </Flex>
 
